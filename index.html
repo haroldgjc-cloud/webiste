@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Movie Restorer ULTRA – Luxury AI Film Restoration App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="AI Movie Restorer ULTRA is a luxury desktop app for restoring and enhancing movies with AI. Clean noise, sharpen details, generate subtitles and translations — all locally on your own machine."
+  />
+  <meta
+    name="keywords"
+    content="AI video restoration, movie restoration software, film remastering, subtitle generator, whisper subtitles, AI upscaling, video enhancement"
+  />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Movie Restorer ULTRA – Luxury AI Film Restoration App" />
+  <meta
+    property="og:description"
+    content="Restore and remaster your films with a cinema-grade AI workflow. Pay what you want, download instantly, and keep everything local on your own machine."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Movie Restorer ULTRA – Luxury AI Film Restoration App" />
+  <meta
+    name="twitter:description"
+    content="A refined AI film restoration suite with a pay-what-you-want model and full local control."
+  />
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AI Movie Restorer ULTRA",
+    "operatingSystem": "Windows, macOS, Linux",
+    "applicationCategory": "MultimediaApplication",
+    "description": "A luxury AI-powered desktop suite for restoring and enhancing movies, generating subtitles and translations, and managing your film restoration pipeline locally.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Pay what you want via optional donation. Full app with no limitations."
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Harold Juarez"
+    }
+  }
+  </script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-elevated: #0b0b12;
+      --bg-soft: #12121b;
+      --accent: #f5c76b;
+      --accent-soft: rgba(245, 199, 107, 0.12);
+      --accent-strong: #ffdd93;
+      --text: #f5f5ff;
+      --muted: #8c8ca3;
+      --border: #26263a;
+      --error: #ff5c7b;
+      --radius-xl: 20px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.7);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.3s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: radial-gradient(circle at top, #101024 0, #050509 55%);
+      color: var(--text);
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5, 5, 9, 0.86), rgba(5, 5, 9, 0.4), transparent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 10%, #ffffff, #f5c76b 35%, #8c6b24 85%);
+      box-shadow: 0 0 22px rgba(245, 199, 107, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #000;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+    }
+
+    .logo-text-main {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 13px;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-strong), #ffffff);
+      transition: width var(--transition-med);
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 199, 107, 0.7);
+      background: radial-gradient(circle at top left, rgba(245, 199, 107, 0.18), rgba(245, 199, 107, 0.04));
+      box-shadow: 0 0 18px rgba(245, 199, 107, 0.45);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-cta span {
+      font-size: 15px;
+      margin-top: -2px;
+    }
+
+    /* Nav shimmer */
+    .nav-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 100%
+      );
+      transform: translateX(-120%);
+      transition: transform 0.5s ease-out;
+      pointer-events: none;
+    }
+
+    .nav-cta:hover::before {
+      transform: translateX(120%);
+    }
+
+    /* Mobile nav */
+    .nav-menu-toggle {
+      display: none;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 8px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      background: rgba(12, 12, 20, 0.9);
+    }
+
+    .nav-links-desktop {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 12px;
+      padding-bottom: 14px;
+    }
+
+    .nav-links-mobile.open {
+      display: flex;
+    }
+
+    /* Promo banner */
+    .promo-banner {
+      max-width: 1180px;
+      margin: 16px auto 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(245, 199, 107, 0.28),
+        rgba(15, 15, 26, 0.96)
+      );
+      border: 1px solid rgba(245, 199, 107, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: #fdf7e8;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .promo-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+    }
+
+    .promo-text strong {
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(10, 10, 18, 0.8);
+      border: 1px solid rgba(245, 199, 107, 0.35);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-strong);
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #ffffff, var(--accent));
+      box-shadow: 0 0 10px rgba(245, 199, 107, 0.8);
+    }
+
+    .hero-title {
+      margin-top: 18px;
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(90deg, var(--accent-strong), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-pill-row {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+    }
+
+    .hero-pill {
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(16, 16, 26, 0.8);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-pill span {
+      font-size: 14px;
+      margin-top: -2px;
+      color: var(--accent-strong);
+    }
+
+    .hero-cta-row {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent-strong), #ffffff);
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 20px 40px rgba(245, 199, 107, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      transform: translateY(0);
+    }
+
+    .btn-primary span {
+      font-size: 17px;
+      margin-top: -2px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 24px 50px rgba(245, 199, 107, 0.8);
+    }
+
+    .btn-ghost {
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(10, 10, 18, 0.7);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(245, 199, 107, 0.6);
+      color: var(--text);
+      background: rgba(18, 18, 28, 1);
+    }
+
+    .hero-trust {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-trust strong {
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    .download-counter {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+    .download-counter span {
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(245, 199, 107, 0.22), rgba(10, 10, 18, 0.98));
+      border-radius: 26px;
+      padding: 18px 18px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      animation: heroFloat 7s ease-in-out infinite alternate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 60%);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-card-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.8);
+      color: var(--accent-strong);
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .frame {
+      border-radius: 18px;
+      padding: 10px;
+      background: rgba(5, 5, 10, 0.96);
+      border: 1px solid rgba(0, 0, 0, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .frame-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.85);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .frame-inner {
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1d1d26 0, #12121b 50%, #05050a 100%);
+      min-height: 180px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .frame-inner::after {
+      content: "Preview Frame";
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .split-before,
+    .split-after {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(0.9) contrast(0.85) blur(0.3px);
+      opacity: 0.5;
+    }
+
+    .split-after {
+      clip-path: polygon(48% 0, 100% 0, 100% 100%, 48% 100%);
+      filter: none;
+      opacity: 0.9;
+    }
+
+    .split-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 48%;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(245, 199, 107, 0), rgba(245, 199, 107, 0.9), rgba(245, 199, 107, 0));
+      box-shadow: 0 0 14px rgba(245, 199, 107, 0.7);
+    }
+
+    .frame-caption {
+      margin-top: 8px;
+      font-size: 10px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .frame-caption strong {
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    .metrics-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(4, 4, 10, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.9);
+      display: grid;
+      gap: 10px;
+      align-content: flex-start;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .metric-value {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .metric-value span {
+      font-size: 18px;
+      color: var(--accent-strong);
+    }
+
+    .metric-bar-track {
+      width: 100%;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ffffff, var(--accent-strong));
+      width: 86%;
+    }
+
+    .metric-footnote {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* Section generic */
+    section {
+      margin-top: 70px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-strong);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    /* Features */
+    .feature-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      border-radius: var(--radius-xl);
+      padding: 16px 15px 18px;
+      background: radial-gradient(circle at top left, rgba(245, 199, 107, 0.16), rgba(10, 10, 18, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease-out, box-shadow 0.25s ease-out, border 0.18s ease-out;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.8);
+      border-color: rgba(245, 199, 107, 0.65);
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 199, 107, 0.85);
+      background: radial-gradient(circle at 30% 0, #fff, var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .feature-meta {
+      margin-top: 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Gallery strip */
+    .gallery-strip {
+      margin-top: 26px;
+      border-radius: var(--radius-xl);
+      padding: 14px;
+      background: radial-gradient(circle at top, rgba(245, 199, 107, 0.18), rgba(5, 5, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow-x: auto;
+    }
+
+    .gallery-row {
+      display: flex;
+      gap: 10px;
+      min-width: 620px;
+    }
+
+    .gallery-item {
+      flex: 1;
+      min-width: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1a1d2a, #050509);
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease-out, box-shadow 0.25s ease-out, border 0.18s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-item-label {
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .gallery-inner {
+      border-radius: 10px;
+      background: radial-gradient(circle at center, #f9f9f9 0, #555 50%, #111 100%);
+      height: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-inner::after {
+      content: "Frame";
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+    }
+
+    .pricing-card {
+      border-radius: 22px;
+      padding: 20px 18px 18px;
+      background: radial-gradient(circle at top left, rgba(245, 199, 107, 0.22), rgba(10, 10, 18, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease-out, box-shadow 0.25s ease-out, border 0.18s ease-out;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.8);
+      border-color: rgba(245, 199, 107, 0.65);
+    }
+
+    .price-tag {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .price-tag span {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .pricing-list li {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .pricing-list li span {
+      font-size: 18px;
+      color: var(--accent-strong);
+    }
+
+    .pricing-badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .pricing-badge {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.88);
+      border: 1px solid rgba(245, 199, 107, 0.6);
+    }
+
+    .pricing-side-card {
+      border-radius: 22px;
+      padding: 16px 15px 15px;
+      background: rgba(8, 8, 16, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: grid;
+      gap: 10px;
+      transition: transform 0.2s ease-out, box-shadow 0.25s ease-out, border 0.18s ease-out;
+    }
+
+    .pricing-side-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.8);
+      border-color: rgba(245, 199, 107, 0.65);
+    }
+
+    .pricing-side-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .pricing-side-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .small-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(245, 199, 107, 0.1);
+      border: 1px solid rgba(245, 199, 107, 0.7);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-strong);
+    }
+
+    .small-tag span {
+      font-size: 14px;
+      margin-top: -1px;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .faq-item {
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      background: rgba(8, 8, 16, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s ease-out, box-shadow 0.25s ease-out, border 0.18s ease-out;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.7);
+      border-color: rgba(245, 199, 107, 0.5);
+    }
+
+    .faq-q {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 18px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    /* Animations */
+    @keyframes heroFloat {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-6px); }
+    }
+
+    .logo-mark {
+      transition: transform 0.2s ease-out, box-shadow 0.25s ease-out;
+    }
+
+    .logo-mark:hover {
+      transform: translateY(-1px) scale(1.05);
+      box-shadow: 0 0 28px rgba(245, 199, 107, 0.9);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .page {
+        padding-inline: 16px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links-desktop {
+        display: none;
+      }
+
+      .nav-menu-toggle {
+        display: inline-flex;
+      }
+
+      .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .promo-banner {
+        border-radius: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <div class="page">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-mark" aria-label="AI Movie Restorer ULTRA logo">
+            <svg viewBox="0 0 40 40" aria-hidden="true">
+              <defs>
+                <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="45%" stop-color="#f5c76b" />
+                  <stop offset="100%" stop-color="#8c6b24" />
+                </linearGradient>
+              </defs>
+              <circle cx="20" cy="20" r="19" fill="url(#goldGrad)" />
+              <text
+                x="50%"
+                y="53%"
+                text-anchor="middle"
+                fill="#000000"
+                font-size="13"
+                font-weight="700"
+                letter-spacing="1"
+                font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif"
+              >
+                AR
+              </text>
+            </svg>
+          </div>
+          <div>
+            <div class="logo-text-main">AI Movie Restorer</div>
+            <div class="logo-text-sub">Ultra · Studio Edition</div>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <button class="nav-menu-toggle" id="navToggle">Menu</button>
+
+          <div class="nav-links-desktop">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#gallery" class="nav-link">Showcase</a>
+            <a href="#pricing" class="nav-link">Support</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a
+              href="https://1drv.ms/u/c/b89416c648e7e78b/Ea5cCF2N-tBMuSfaCWsMStwByHA9pFwE1i9dZDqKa50bqg?e=zSwhyk"
+              class="nav-cta"
+              target="_blank"
+              onclick="incrementDownloadCount()"
+            >
+              Download – PWYW
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-links-mobile" id="navMobile">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#gallery" class="nav-link">Showcase</a>
+        <a href="#pricing" class="nav-link">Support</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a
+          href="https://1drv.ms/u/c/b89416c648e7e78b/Ea5cCF2N-tBMuSfaCWsMStwByHA9pFwE1i9dZDqKa50bqg?e=zSwhyk"
+          class="nav-cta"
+          target="_blank"
+          onclick="incrementDownloadCount()"
+        >
+          Download – PWYW
+          <span>↓</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="promo-banner">
+    <span class="promo-pill">New • Beta Release</span>
+    <span class="promo-text">
+      AI Movie Restorer ULTRA is now available with a
+      <strong>pay-what-you-want</strong> model. Download the full app and support
+      development with an optional donation.
+    </span>
+  </div>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Luxury AI remastering suite
+        </div>
+
+        <h1 class="hero-title">
+          Restore your films with
+          <span class="highlight">cinema-grade</span>
+          elegance.
+        </h1>
+
+        <p class="hero-subtitle">
+          AI Movie Restorer ULTRA is a desktop studio for breathing life back into
+          your archives – sharpening detail, balancing color and elevating sound,
+          all inside a refined, distraction-free interface.
+        </p>
+
+        <div class="hero-pill-row">
+          <div class="hero-pill">
+            <span>◆</span>
+            Designed for cinephiles & creators
+          </div>
+          <div class="hero-pill">
+            <span>◆</span>
+            AI-assisted restoration pipeline
+          </div>
+          <div class="hero-pill">
+            <span>◆</span>
+            Subtitle & translation tools
+          </div>
+        </div>
+
+        <div class="hero-cta-row" id="download">
+          <button
+            class="btn-primary"
+            onclick="incrementDownloadCount(); window.location.href='https://1drv.ms/u/c/b89416c648e7e78b/Ea5cCF2N-tBMuSfaCWsMStwByHA9pFwE1i9dZDqKa50bqg?e=zSwhyk'"
+          >
+            Download – Pay What You Want
+            <span>↓</span>
+          </button>
+
+          <button class="btn-ghost" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'});">
+            View sample frames
+          </button>
+        </div>
+
+        <div class="hero-trust">
+          <div>Single desktop app · Local processing on your machine</div>
+          <div>Launch via <strong>python main_qt.py</strong></div>
+        </div>
+
+        <div class="download-counter">
+          Downloads on this device: <span id="downloadCountDisplay">0</span>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Before / after preview">
+        <div class="hero-card-inner">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Restoration Preview</div>
+            <div class="hero-card-badge">Live AI Pipeline</div>
+          </div>
+
+          <div class="hero-split">
+            <div class="frame">
+              <div class="frame-label">Before / After</div>
+              <div class="frame-inner">
+                <div class="split-before"></div>
+                <div class="split-after"></div>
+                <div class="split-divider"></div>
+              </div>
+              <div class="frame-caption">
+                <span><strong>Source:</strong> Soft, noisy print</span>
+                <span><strong>Output:</strong> Clean, cinematic remaster</span>
+              </div>
+            </div>
+
+            <div class="metrics-card">
+              <div class="metric-row">
+                <div>
+                  <div class="metric-label">Session duration</div>
+                  <div class="metric-value"><span>14</span> min / reel</div>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div>
+                  <div class="metric-label">Enhancement intensity</div>
+                </div>
+              </div>
+              <div class="metric-bar-track">
+                <div class="metric-bar-fill"></div>
+              </div>
+
+              <div class="metric-row">
+                <div>
+                  <div class="metric-label">Audio & subtitles</div>
+                  <div class="metric-value">Whisper-based subtitle workflow*</div>
+                </div>
+              </div>
+
+              <div class="metric-footnote">
+                * Subtitle generation & translation flows are powered by external AI
+                libraries configured locally in your environment.
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">A focused toolkit for modern film restoration.</h2>
+      <p class="section-subtitle">
+        AI Movie Restorer ULTRA combines your existing video tools with a curated
+        set of AI-driven enhancements. No clutter, no subscriptions – just a refined
+        desktop app that runs on your own hardware.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">◎</div>
+          <h3 class="feature-title">Restoration pipeline</h3>
+          <p class="feature-text">
+            Orchestrate your cleaning, enhancement and export steps from a single
+            pipeline script (<code>video_pipeline.py</code>) tuned for long-form
+            movie work.
+          </p>
+          <div class="feature-meta">Configurable · Script-aware</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">𝚆</div>
+          <h3 class="feature-title">Smart subtitles</h3>
+          <p class="feature-text">
+            Generate subtitle drafts from dialogue using a Whisper-based flow
+            (<code>whisper_subtitles.py</code>), then refine timing inside your
+            favorite editor.
+          </p>
+          <div class="feature-meta">Voice-to-text · Timestamped</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">語</div>
+          <h3 class="feature-title">Translation helper</h3>
+          <p class="feature-text">
+            Translate existing <code>.srt</code> files into multiple languages via
+            <code>translate_srt.py</code>, ideal for giving your restored films a
+            global audience.
+          </p>
+          <div class="feature-meta">Multilingual · Text-only workflow</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">☾</div>
+          <h3 class="feature-title">Luxury UI</h3>
+          <p class="feature-text">
+            A calm, cinematic interface powered by Qt
+            (<code>main_qt.py</code>), with a dark studio palette designed for
+            long sessions and color-critical work.
+          </p>
+          <div class="feature-meta">Desktop-first · Distraction-free</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⚙</div>
+          <h3 class="feature-title">Auto patching</h3>
+          <p class="feature-text">
+            Helper scripts (<code>auto_patch.py</code>) make it easier to update
+            models and dependencies over time without touching your core project.
+          </p>
+          <div class="feature-meta">Maintainable · Dev-friendly</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Local-first design</h3>
+          <p class="feature-text">
+            Your footage stays on your machine. AI Movie Restorer ULTRA is meant
+            for local workflows where you retain full control of your archive.
+          </p>
+          <div class="feature-meta">Private · Offline-ready</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Gallery / Showcase -->
+    <section id="gallery">
+      <div class="section-label">Showcase</div>
+      <h2 class="section-title">Imagine your archive in this light.</h2>
+      <p class="section-subtitle">
+        Replace these placeholders with still frames from your own before / after
+        sessions. The layout is built to highlight subtle improvements in texture,
+        color and clarity.
+      </p>
+
+      <div class="gallery-strip">
+        <div class="gallery-row">
+          <div class="gallery-item">
+            <div class="gallery-item-label">Classic drama · Before</div>
+            <div class="gallery-inner"></div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-item-label">Classic drama · After</div>
+            <div class="gallery-inner"></div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-item-label">Film grain preserved</div>
+            <div class="gallery-inner"></div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-item-label">Restored print · 4K master</div>
+            <div class="gallery-inner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Support -->
+    <section id="pricing">
+      <div class="section-label">Support</div>
+      <h2 class="section-title">Pay what you want. Get the full app.</h2>
+      <p class="section-subtitle">
+        AI Movie Restorer ULTRA is a passion project. You get the complete version of
+        the app no matter what you pay — even $0. If it helps you restore films or
+        saves you hours of work, you can leave a small donation to support development.
+      </p>
+
+      <div class="pricing-grid">
+        <!-- MAIN DONATION BLOCK -->
+        <div class="pricing-card">
+          <div class="price-tag">
+            $1 · $2 · $5+
+            <span>/ pay what you want</span>
+          </div>
+          <div class="price-note">
+            Your support is optional but appreciated. Donations help maintain the tool
+            and fund new features, updates, and improved AI workflows.
+          </div>
+
+          <ul class="pricing-list">
+            <li>
+              <span>✓</span>
+              Full access to AI Movie Restorer ULTRA (no limitations)
+            </li>
+            <li>
+              <span>✓</span>
+              No subscriptions · No DRM · No online activation
+            </li>
+            <li>
+              <span>✓</span>
+              Pay any amount: $1, $2, $5, or custom
+            </li>
+            <li>
+              <span>✓</span>
+              Your donation directly supports development
+            </li>
+          </ul>
+
+          <!-- Official PayPal Donation Link -->
+          <button class="btn-primary"
+            onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=CZUK2HKN2QTV4', '_blank')">
+            Support with PayPal
+            <span>♥</span>
+          </button>
+
+          <div class="pricing-badge-row">
+            <div class="pricing-badge">Optional Payment</div>
+            <div class="pricing-badge">Secure PayPal Donation</div>
+          </div>
+        </div>
+
+        <!-- SIDE INFO -->
+        <aside class="pricing-side-card">
+          <div class="small-tag">
+            <span>★</span>
+            How it works
+          </div>
+          <h3 class="pricing-side-title">Download now. Tip if you want.</h3>
+          <p class="pricing-side-text">
+            Download the full app instantly using the link above. If AI Movie Restorer
+            ULTRA becomes a part of your workflow or helps you restore old films, you’re
+            welcome to come back and send a small donation.
+          </p>
+          <p class="pricing-side-text">
+            This model keeps the tool accessible to everyone regardless of income,
+            while still allowing people to support the creator and future versions.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Questions, already answered.</h2>
+      <p class="section-subtitle">
+        Update this section with anything that repeatedly comes up from your users:
+        hardware requirements, model downloads, and supported formats.
+      </p>
+
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3 class="faq-q">What do I need to run AI Movie Restorer ULTRA?</h3>
+          <p class="faq-a">
+            You’ll need a modern machine with Python installed and a compatible GPU
+            for the heavier AI models. Once dependencies are installed from
+            <code>requirements.txt</code>, launch the app with
+            <code>python main_qt.py</code>.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-q">Does my footage ever leave my computer?</h3>
+          <p class="faq-a">
+            No. The project is designed to run locally. Any cloud or third-party AI
+            usage you add will be configured by you and clearly visible in your
+            environment.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-q">Can I use it commercially?</h3>
+          <p class="faq-a">
+            Yes, you can use the tool in your own creative or client projects. Just
+            make sure you respect the rights of the footage and AI models you use.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-q">Do you provide updates or new models?</h3>
+          <p class="faq-a">
+            The core codebase is versioned. Minor updates and patches may be released
+            over time. Donations help justify more time spent on improvements.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>© <span id="year"></span> AI Movie Restorer ULTRA. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#pricing">Support</a>
+        <a href="#faq">Support & FAQ</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navMobile = document.getElementById("navMobile");
+
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        navMobile.classList.toggle("open");
+      });
+    }
+
+    navMobile?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMobile.classList.remove("open");
+      });
+    });
+
+    // Year in footer
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Download counter (local to this browser)
+    const DOWNLOAD_KEY = "ai_movie_restorer_downloads";
+
+    function incrementDownloadCount() {
+      try {
+        const current = parseInt(localStorage.getItem(DOWNLOAD_KEY) || "0", 10);
+        const next = isNaN(current) ? 1 : current + 1;
+        localStorage.setItem(DOWNLOAD_KEY, String(next));
+        renderDownloadCount();
+      } catch (e) {
+        console.warn("Download counter unavailable:", e);
+      }
+    }
+
+    function renderDownloadCount() {
+      const el = document.getElementById("downloadCountDisplay");
+      if (!el) return;
+      try {
+        const current = parseInt(localStorage.getItem(DOWNLOAD_KEY) || "0", 10);
+        el.textContent = isNaN(current) ? "0" : String(current);
+      } catch {
+        el.textContent = "0";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", renderDownloadCount);
+  </script>
+</body>
+</html>
